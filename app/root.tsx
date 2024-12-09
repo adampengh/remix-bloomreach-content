@@ -8,6 +8,8 @@ import {
 import type { LinksFunction } from "@remix-run/node";
 
 import "./tailwind.css";
+import Header from "./components/Header";
+import Footer from "./components/Footer";
 
 export const links: LinksFunction = () => [
   { rel: "preconnect", href: "https://fonts.googleapis.com" },
@@ -31,8 +33,14 @@ export function Layout({ children }: { children: React.ReactNode }) {
         <Meta />
         <Links />
       </head>
-      <body>
-        {children}
+      <body className='antialiased min-h-screen flex flex-col'>
+          <Header />
+          <main className="bg-slate-100">
+            <div className='mx-auto flex max-w-7xl p-2'>
+              {children}
+            </div>
+          </main>
+          <Footer />
         <ScrollRestoration />
         <Scripts />
       </body>
