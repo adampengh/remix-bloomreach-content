@@ -36,7 +36,7 @@ export function Layout({ children }: { children: React.ReactNode }) {
       <body className='antialiased min-h-screen flex flex-col'>
           <Header />
           <main className="bg-slate-100">
-            <div className='mx-auto flex max-w-7xl p-2'>
+            <div className='mx-auto max-w-7xl p-2'>
               {children}
             </div>
           </main>

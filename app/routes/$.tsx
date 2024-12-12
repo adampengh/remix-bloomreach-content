@@ -19,7 +19,9 @@ export const meta: MetaFunction = () => {
 
 export const loader = async ({ request }: LoaderFunctionArgs) => {
   const url = new URL(request.url);
+  console.log('url', url)
   const path = `${url.pathname}${url.search}`;
+  console.log("path", path);
 
   const configuration: ConfigurationBuilder = buildConfiguration(path);
   const page: Page = await initialize({ ...configuration, httpClient: axios });
@@ -40,7 +42,7 @@ export default function Index() {
 
   return (
     <div className="flex flex-col">
-      <h1 className="text-6xl my-3">Homepage</h1>
+      <h1 className="text-6xl my-3">Dynamic Page</h1>
       <BrxApp
         configuration={configuration}
         page={page}

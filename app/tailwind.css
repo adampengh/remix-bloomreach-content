@@ -15,3 +15,7 @@ body {
 main {
   min-height: 800px;
 }
+
+.has-edit-button {
+  position: relative;
+}

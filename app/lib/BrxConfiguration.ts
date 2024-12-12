@@ -6,17 +6,14 @@ export type BuildConfigurationOptions = {
 };
 export type ConfigurationBuilder = Omit<Configuration & Partial<BuildConfigurationOptions>, 'httpClient'>;
 
-export const BRXM_PUBLIC_ENDPOINT = process.env.BRXM_PUBLIC_ENDPOINT ?? '';
-
 export const buildConfiguration = (
-  path: string,
-  endpoint: string = BRXM_PUBLIC_ENDPOINT,
+  path: string
 ) => {
   const configuration: ConfigurationBuilder = {
     NBRMode: true,
-    endpoint: endpoint,
-    path: path,
-    debug: true,
+    endpoint: process.env.BRXM_PUBLIC_ENDPOINT ?? 'http://localhost:8080/site/resourceapi',
+    path,
+    // debug: true,
   }
 
   return configuration
